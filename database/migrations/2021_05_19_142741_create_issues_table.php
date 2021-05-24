@@ -20,7 +20,6 @@ class CreateIssuesTable extends Migration
             $table->text('description')->nullable();
             $table->boolean('status');
             $table->string('priority');
-            $table->bigInteger('file_id');
             $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->foreignId('reporter_id')->references('id')->on('users');
             $table->foreignId('assigned_id')->references('id')->on('users');

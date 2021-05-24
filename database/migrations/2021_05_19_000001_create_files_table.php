@@ -20,7 +20,7 @@ class CreateFilesTable extends Migration
             $table->string('fileable_type');
             $table->string('file_name');
             $table->string('file_type');
-            $table->binary('content');//storage!!!
+            $table->string('path')->unique();
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

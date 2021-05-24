@@ -22,7 +22,13 @@ class Project extends Model
       'completed_at'
     ];
 
-    public function issues(){
+    public function issues()
+    {
         return $this->hasMany(Issue::class, 'project_id', 'id');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class);
     }
 }

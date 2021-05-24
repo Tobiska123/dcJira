@@ -18,9 +18,9 @@ class CreateSolutionsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('issue_id')->constrained();
-            $table->longText('desc');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->longText('description');
+            $table->date("day_log");
+            $table->string('time_period');//casts
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

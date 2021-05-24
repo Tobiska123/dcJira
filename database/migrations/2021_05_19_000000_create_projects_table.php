@@ -16,11 +16,11 @@ class CreateProjectsTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('project_name')->unique();
+            $table->string('name')->unique();
             $table->dateTime('completed_at');
             $table->timestamps();
         });
-        Schema::enableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();//!!!
     }
 
     /**

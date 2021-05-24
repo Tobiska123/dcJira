@@ -11,7 +11,6 @@ use mysql_xdevapi\Exception;
 class ProjectController extends Controller
 {
 
-    const PAGE_SIZE = 10;
     /**
      * Display a listing of the resource.
      *
@@ -63,12 +62,12 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project): JsonResponse
     {
           $valid = $request->validate([
-              'project_name'=>'bail|required|string|max:254',
+              'project_name'=>'bail|string|max:254',
               'completed_at'=>'date'
            ]);
             $project->update($valid);
             return response()->json([
-                'msg'=>'Updated'
+                'msg'=>'Updated user'
             ], 200);
 //            return response()->json(['message' => 'Not Found'], 404);
     }

@@ -16,13 +16,11 @@ class CreateUsersTable extends Migration
             Schema::disableForeignKeyConstraints();
             Schema::create('users', function (Blueprint $table) {
                 $table->id();
-                $table->string('user_name');
-                $table->string('e-mail')->unique();
+                $table->string('name');
+                $table->string('email')->unique();
                 $table->timestamp('email_verified_at')->nullable();
                 $table->string('password');
                 $table->dateTime('last_login')->nullable();
-                $table->bigInteger('file_id');
-                $table->foreignId('project_id')->constrained();
                 $table->rememberToken();
                 $table->timestamps();
             });

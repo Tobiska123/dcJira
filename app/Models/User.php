@@ -41,9 +41,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function avatars(){
+    public function avatars()
+    {
         return $this->morphMany(File::class, 'fileable');
     }
+
+    public function projects()
+    {
+        return $this->belongsToMany(Project::class);
+    }
+
+
 
 
 }

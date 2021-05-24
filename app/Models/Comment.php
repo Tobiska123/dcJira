@@ -14,11 +14,13 @@ class Comment extends Model
         'updated_at'
     ];
 
-    public function user(){
-        return $this->hasOne(User::class, 'user_id', 'id');
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
     }
 
-    public function issue(){
-        return $this->hasOne(Issue::class, 'issue_id', 'id');
+    public function issue()
+    {
+        return $this->belongsToMany(Issue::class);
     }
 }
